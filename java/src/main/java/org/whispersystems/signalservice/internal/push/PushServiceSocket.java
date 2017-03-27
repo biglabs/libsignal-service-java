@@ -637,7 +637,8 @@ public class PushServiceSocket {
       if (connectionInformation.getConnectionSpec().isPresent()) {
         okHttpClientBuilder.connectionSpecs(Collections.singletonList(connectionInformation.getConnectionSpec().get()));
       } else {
-        okHttpClientBuilder.connectionSpecs(Util.immutableList(ConnectionSpec.MODERN_TLS, ConnectionSpec.COMPATIBLE_TLS));
+        //okHttpClientBuilder.connectionSpecs(Util.immutableList(ConnectionSpec.MODERN_TLS, ConnectionSpec.COMPATIBLE_TLS));
+        okHttpClientBuilder.connectionSpecs(Util.immutableList(ConnectionSpec.MODERN_TLS, ConnectionSpec.CLEARTEXT));
       }
 
       if (hostHeader.isPresent()) {
